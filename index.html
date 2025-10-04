@@ -1,0 +1,2081 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fusea - Agence Marketing qui Fuse</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #6C63FF;
+            --secondary-color: #00C9A7;
+            --background-color: #FAFBFC;
+            --surface-color: #FFFFFF;
+            --text-color: #1E1E2F;
+            --text-light: #6B7280;
+            --text-muted: #9CA3AF;
+            --accent-color: #FF6B6B;
+            --border-color: #E5E7EB;
+            --shadow-light: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-medium: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --shadow-large: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            --gradient-primary: linear-gradient(135deg, #6C63FF 0%, #00C9A7 100%);
+            --gradient-accent: linear-gradient(135deg, #FF6B6B 0%, #6C63FF 100%);
+            --gradient-surface: linear-gradient(145deg, #FFFFFF 0%, #F8FAFC 100%);
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 90px;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background: var(--background-color);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(100%); }
+            to { transform: translateY(0); }
+        }
+
+        @keyframes scaleIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .animate-on-scroll.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border-color);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.75rem;
+            font-weight: 800;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .cta-button {
+            background: var(--gradient-accent);
+            color: white;
+            padding: 0.875rem 1.75rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-large);
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 100px;
+            padding-bottom: 50px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            opacity: 0.1;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -50%;
+            left: -20%;
+            width: 500px;
+            height: 500px;
+            background: var(--gradient-accent);
+            border-radius: 50%;
+            opacity: 0.1;
+            animation: float 8s ease-in-out infinite;
+            animation-delay: 1s;
+        }
+
+        .hero-content {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+
+        .gradient-text {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: inline-block;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-light);
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .cta-primary, .cta-secondary {
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .cta-primary {
+            background: var(--gradient-accent);
+            color: white;
+            box-shadow: var(--shadow-medium);
+        }
+
+        .cta-primary:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: var(--shadow-large);
+        }
+
+        .cta-secondary {
+            border: 2px solid var(--border-color);
+            color: var(--text-color);
+            background: var(--surface-color);
+        }
+
+        .cta-secondary:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .why-fusea {
+            background: var(--surface-color);
+        }
+
+        .values-grid, .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--gradient-surface);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow-light);
+            transition: all 0.4s;
+            border: 1px solid var(--border-color);
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-large);
+            border-color: var(--primary-color);
+        }
+
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-primary);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .card p {
+            color: var(--text-light);
+        }
+
+        .service-card ul {
+            list-style: none;
+            margin: 1.5rem 0 0 0;
+            padding: 0;
+        }
+
+        .service-card li {
+            padding: 0.5rem 0;
+            color: var(--text-light);
+            position: relative;
+            padding-left: 1.75rem;
+            font-size: 0.95rem;
+        }
+
+        .service-card li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            top: 0.5rem;
+            color: var(--secondary-color);
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .process {
+            background: var(--text-color);
+            position: relative;
+        }
+
+        .process .section-title {
+            color: white;
+            background: none;
+            -webkit-text-fill-color: white;
+        }
+
+        .process .section-subtitle {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .timeline-container {
+            max-width: 1000px;
+            margin: 4rem auto;
+            position: relative;
+        }
+
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(180deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            margin-bottom: 6rem;
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .timeline-item:nth-child(odd) {
+            flex-direction: row;
+        }
+
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-item.animated {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .timeline-content {
+            width: 45%;
+            padding: 2.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-right: auto;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-left: auto;
+        }
+
+        .timeline-number {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 800;
+            color: white;
+            z-index: 10;
+        }
+
+        .timeline-connector {
+            position: absolute;
+            top: 50%;
+            height: 2px;
+            background: rgba(108, 99, 255, 0.3);
+            transform: translateY(-50%);
+        }
+
+        .timeline-item:nth-child(odd) .timeline-connector {
+            left: 50%;
+            right: 55%;
+        }
+
+        .timeline-item:nth-child(even) .timeline-connector {
+            right: 50%;
+            left: 55%;
+        }
+
+        .step-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .step-icon {
+            font-size: 2rem;
+        }
+
+        .step-description {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.1rem;
+        }
+
+        .expertise {
+            background: var(--gradient-primary);
+            color: white;
+        }
+
+        .expertise .section-title {
+            color: white;
+            background: none;
+            -webkit-text-fill-color: white;
+        }
+
+        .expertise .section-subtitle {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .expertise-item {
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            text-align: center;
+            transition: all 0.4s;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .expertise-item:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .expertise-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .expertise-item h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .expertise-item p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .contact-cta {
+            background: var(--surface-color);
+            text-align: center;
+        }
+
+        .contact-cta h2 {
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .contact-cta p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+        }
+
+        footer {
+            background: var(--text-color);
+            color: white;
+            padding: 3rem 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .footer-section p, .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
+            margin: 0.5rem 0;
+            text-decoration: none;
+            display: block;
+            transition: all 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: white;
+            transform: translateX(5px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .footer-legal-links {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .footer-legal-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            display: inline;
+            margin: 0;
+        }
+
+        .footer-legal-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .footer-legal-links span {
+            margin: 0 0.5rem;
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(30, 30, 47, 0.98);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            z-index: 9999;
+            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
+            animation: slideUp 0.5s ease;
+            display: none;
+        }
+
+        .cookie-banner.show {
+            display: block;
+        }
+
+        .cookie-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .cookie-text {
+            flex: 1;
+            min-width: 300px;
+            color: white;
+        }
+
+        .cookie-text h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .cookie-text p {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        .cookie-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .cookie-btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .cookie-accept {
+            background: var(--gradient-primary);
+            color: white;
+        }
+
+        .cookie-accept:hover {
+            transform: translateY(-2px);
+        }
+
+        .cookie-reject {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .cookie-settings {
+            background: transparent;
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 10001;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: var(--surface-color);
+            padding: 0;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 600px;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: var(--shadow-large);
+        }
+
+        .modal-header {
+            padding: 2rem;
+            border-bottom: 1px solid var(--border-color);
+            position: relative;
+        }
+
+        .modal-header h2 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: none;
+            border: none;
+            font-size: 2rem;
+            cursor: pointer;
+            color: var(--text-muted);
+            transition: all 0.3s;
+        }
+
+        .modal-close:hover {
+            color: var(--text-color);
+        }
+
+        .modal-body {
+            padding: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: all 0.3s;
+            background: var(--background-color);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .rgpd-consent {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin: 1.5rem 0;
+            padding: 1rem;
+            background: var(--background-color);
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .rgpd-consent input[type="checkbox"] {
+            margin-top: 0.25rem;
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        .rgpd-consent label {
+            font-size: 0.9rem;
+            color: var(--text-color);
+            line-height: 1.5;
+            cursor: pointer;
+        }
+
+        .rgpd-consent a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .btn-submit {
+            width: 100%;
+            background: var(--gradient-accent);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-large);
+        }
+
+        .cookie-category {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: var(--background-color);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+
+        .cookie-category-header {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+
+        .cookie-category h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .cookie-category p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin: 0;
+        }
+
+        .cookie-switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 26px;
+            flex-shrink: 0;
+        }
+
+        .cookie-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .cookie-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: 0.4s;
+            border-radius: 26px;
+        }
+
+        .cookie-slider:before {
+            position: absolute;
+            content: "";
+            height: 20px;
+            width: 20px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: 0.4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .cookie-slider {
+            background: var(--gradient-primary);
+        }
+
+        input:checked + .cookie-slider:before {
+            transform: translateX(24px);
+        }
+
+        input:disabled + .cookie-slider {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .chat-fab {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            font-size: 1.8rem;
+            cursor: pointer;
+            box-shadow: var(--shadow-large);
+            z-index: 9998;
+            transition: transform 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .chat-fab:hover {
+            transform: scale(1.1);
+        }
+
+        .modal.chatbot .modal-content {
+            max-width: 420px;
+            width: 95%;
+            height: 600px;
+            max-height: 85vh;
+            display: flex;
+            flex-direction: column;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .chatbot .modal-header {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 1.25rem 1.5rem;
+            border-bottom: none;
+            border-radius: 20px 20px 0 0;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .chat-header-info {
+            flex: 1;
+        }
+
+        .chat-status {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.8rem;
+            margin-top: 0.25rem;
+            opacity: 0.9;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: #00ff88;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.7;
+                transform: scale(1.1);
+            }
+        }
+
+        .chatbot .modal-header h2 {
+            color: white;
+            font-size: 1.3rem;
+            margin: 0;
+        }
+
+        .chatbot .modal-header p {
+            display: none;
+        }
+
+        .chatbot .modal-close {
+            color: white;
+            top: 1.25rem;
+            position: static;
+        }
+
+        .chat-intro-message {
+            background: linear-gradient(135deg, rgba(108, 99, 255, 0.1) 0%, rgba(0, 201, 167, 0.1) 100%);
+            padding: 1rem;
+            margin: 1rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--primary-color);
+            animation: fadeInUp 0.5s ease;
+        }
+
+        .chat-intro-message h3 {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-color);
+        }
+
+        .chat-intro-message p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        .chat-intro-message ul {
+            list-style: none;
+            padding: 0;
+            margin: 0.75rem 0 0 0;
+        }
+
+        .chat-intro-message li {
+            padding: 0.25rem 0;
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        .chat-intro-message li:before {
+            content: "→";
+            margin-right: 0.5rem;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .chat-body {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            overflow: hidden;
+            background: #f5f5f5;
+        }
+
+        .chat-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 1.5rem 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .chat-message {
+            display: flex;
+            gap: 0.5rem;
+            align-items: flex-end;
+        }
+
+        .chat-message.user {
+            flex-direction: row-reverse;
+        }
+
+        .chat-bubble {
+            max-width: 75%;
+            padding: 0.75rem 1rem;
+            border-radius: 18px;
+            font-size: 0.95rem;
+            line-height: 1.4;
+            word-wrap: break-word;
+        }
+
+        .chat-message.user .chat-bubble {
+            background: var(--gradient-primary);
+            color: white;
+            border-bottom-right-radius: 4px;
+            margin-left: auto;
+        }
+
+        .chat-message.bot .chat-bubble {
+            background: white;
+            color: var(--text-color);
+            border-bottom-left-radius: 4px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--gradient-accent);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+
+        .chat-form {
+            display: flex;
+            gap: 0.5rem;
+            padding: 1rem;
+            background: white;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .chat-form input {
+            flex: 1;
+            padding: 0.75rem 1rem;
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
+            font-size: 0.95rem;
+            font-family: inherit;
+        }
+
+        .chat-form input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .chat-send {
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 42px;
+            height: 42px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .chat-send:hover {
+            transform: scale(1.05);
+        }
+
+        .chat-hint {
+            font-size: 0.75rem;
+            color: var(--text-light);
+            padding: 0 1rem 0.75rem;
+            text-align: center;
+            background: white;
+        }
+
+        .chat-hint a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline-line {
+                left: 20px;
+            }
+
+            .timeline-item {
+                flex-direction: row !important;
+                padding-left: 60px;
+            }
+
+            .timeline-content {
+                width: 100% !important;
+                margin: 0 !important;
+            }
+
+            .timeline-number {
+                left: 20px !important;
+            }
+
+            .timeline-connector {
+                display: none;
+            }
+
+            .cookie-content {
+                flex-direction: column;
+            }
+
+            .cookie-buttons {
+                width: 100%;
+            }
+
+            .cookie-btn {
+                flex: 1;
+            }
+
+            .modal.chatbot .modal-content {
+                width: 100%;
+                height: 100vh;
+                max-height: 100vh;
+                border-radius: 0;
+            }
+
+            .chatbot .modal-header {
+                border-radius: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo" onclick="window.scrollTo({top:0,behavior:'smooth'})">Fusea</div>
+            <ul class="nav-links">
+                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#valeurs">Valeurs</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#methode">Méthode</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <a href="#" class="cta-button" onclick="openBookingModal(); return false;">Réserver audit gratuit</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="accueil" class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Accélérez votre croissance avec une direction marketing qui <span class="gradient-text">fuse</span></h1>
+                    <p>Création, acquisition & conversion orchestrées de bout en bout.</p>
+                    <div class="hero-ctas">
+                        <a href="#" class="cta-primary" onclick="openBookingModal(); return false;">Réserver un audit gratuit</a>
+                        <a href="#services" class="cta-secondary">Découvrir notre approche</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="valeurs" class="why-fusea">
+            <div class="container">
+                <h2 class="section-title animate-on-scroll">Pourquoi Fusea ?</h2>
+                <p class="section-subtitle animate-on-scroll">Une approche différente du marketing, centrée sur l'authenticité, la performance et l'innovation continue.</p>
+                
+                <div class="values-grid">
+                    <article class="card animate-on-scroll">
+                        <div class="card-icon">🎯</div>
+                        <h3>Stratégie Nette</h3>
+                        <p>Pas de jargon technique inutile. Nous parlons business et nous concentrons sur ce qui génère vraiment du résultat.</p>
+                    </article>
+                    
+                    <article class="card animate-on-scroll">
+                        <div class="card-icon">⚡</div>
+                        <h3>Exécution Rapide</h3>
+                        <p>Nous détestons les projets qui traînent. Notre méthode permet de déployer vos campagnes en 7-14 jours maximum.</p>
+                    </article>
+                    
+                    <article class="card animate-on-scroll">
+                        <div class="card-icon">📊</div>
+                        <h3>Créativité Mesurée</h3>
+                        <p>Chaque créatif, chaque campagne est pensée pour maximiser votre ROI. L'art au service de la performance.</p>
+                    </article>
+                    
+                    <article class="card animate-on-scroll">
+                        <div class="card-icon">🔄</div>
+                        <h3>Amélioration Continue</h3>
+                        <p>Nous optimisons en permanence vos campagnes basé sur la data. Votre performance s'améliore semaine après semaine.</p>
+                    </article>
+
+                    <article class="card animate-on-scroll">
+                        <div class="card-icon">🤝</div>
+                        <h3>Transparence Totale</h3>
+                        <p>Accès direct à tous vos comptes, dashboards temps réel, reporting hebdomadaire. Vous gardez le contrôle total.</p>
+                    </article>
+                    
+                    <article class="card animate-on-scroll">
+                        <div class="card-icon">🚀</div>
+                        <h3>Vision Long Terme</h3>
+                        <p>Nous construisons votre marketing pour qu'il soit durable et scalable. Pas de quick wins qui s'essoufflent.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="services">
+            <div class="container">
+                <h2 class="section-title animate-on-scroll">Services qui Fusent</h2>
+                <p class="section-subtitle animate-on-scroll">Une approche holistique du marketing moderne, où chaque service s'interconnecte pour maximiser vos résultats.</p>
+                
+                <div class="services-grid">
+                    <article class="card service-card animate-on-scroll">
+                        <div class="card-icon">🔍</div>
+                        <h3>Audit & Stratégie GTM</h3>
+                        <p>Analyse approfondie de votre écosystème marketing actuel et roadmap sur 90 jours.</p>
+                        <ul>
+                            <li>Analyse concurrentielle</li>
+                            <li>Customer journey mapping</li>
+                            <li>Audit SEO & UX</li>
+                        </ul>
+                    </article>
+                    
+                    <article class="card service-card animate-on-scroll">
+                        <div class="card-icon">✨</div>
+                        <h3>Branding & Contenus</h3>
+                        <p>Création d'une identité visuelle forte et de contenus qui convertissent.</p>
+                        <ul>
+                            <li>Identité visuelle complète</li>
+                            <li>UGC & vidéo marketing</li>
+                            <li>Storytelling conversion</li>
+                        </ul>
+                    </article>
+                    
+                    <article class="card service-card animate-on-scroll">
+                        <div class="card-icon">🎯</div>
+                        <h3>Paid Media & CRO</h3>
+                        <p>Campagnes publicitaires ultra-ciblées avec optimisation continue.</p>
+                        <ul>
+                            <li>Google Ads & Meta Ads</li>
+                            <li>A/B testing systématique</li>
+                            <li>Landing pages optimisées</li>
+                        </ul>
+                    </article>
+                    
+                    <article class="card service-card animate-on-scroll">
+                        <div class="card-icon">📈</div>
+                        <h3>SEO & Marketing Automation</h3>
+                        <p>Visibilité organique durable avec workflows automatisés.</p>
+                        <ul>
+                            <li>SEO technique & contenu</li>
+                            <li>Email/SMS automation</li>
+                            <li>Lead nurturing intelligent</li>
+                        </ul>
+                    </article>
+                    
+                    <article class="card service-card animate-on-scroll">
+                        <div class="card-icon">💰</div>
+                        <h3>Optimisation ROI</h3>
+                        <p>Tracking avancé pour maximiser chaque euro investi.</p>
+                        <ul>
+                            <li>GA4 & Tag Manager</li>
+                            <li>Attribution modeling</li>
+                            <li>Dashboards temps réel</li>
+                        </ul>
+                    </article>
+                    
+                    <article class="card service-card animate-on-scroll">
+                        <div class="card-icon">🤝</div>
+                        <h3>Recherche de Sponsors</h3>
+                        <p>Service dédié aux ASBL et clubs sportifs.</p>
+                        <ul>
+                            <li>Prospection ciblée</li>
+                            <li>Dossiers professionnels</li>
+                            <li>Négociation & suivi</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="methode" class="process">
+            <div class="container">
+                <h2 class="section-title">Notre Méthode en 4 Étapes</h2>
+                <p class="section-subtitle">Une approche structurée et éprouvée pour transformer votre marketing.</p>
+
+                <div class="timeline-container">
+                    <div class="timeline-line"></div>
+                    
+                    <article class="timeline-item animate-on-scroll">
+                        <div class="timeline-number">01</div>
+                        <div class="timeline-connector"></div>
+                        <div class="timeline-content">
+                            <h3 class="step-title"><span class="step-icon">🔍</span>Découvrir</h3>
+                            <p class="step-description">Audit 360° de votre écosystème marketing pour identifier toutes les opportunités. Analyse concurrentielle, parcours client et étude de vos KPIs actuels.</p>
+                        </div>
+                    </article>
+
+                    <article class="timeline-item animate-on-scroll">
+                        <div class="timeline-number">02</div>
+                        <div class="timeline-connector"></div>
+                        <div class="timeline-content">
+                            <h3 class="step-title"><span class="step-icon">🎨</span>Concevoir</h3>
+                            <p class="step-description">Stratégie sur-mesure et plan d'actions priorisé avec des KPIs mesurables. Création de votre roadmap marketing pour les 90 prochains jours.</p>
+                        </div>
+                    </article>
+
+                    <article class="timeline-item animate-on-scroll">
+                        <div class="timeline-number">03</div>
+                        <div class="timeline-connector"></div>
+                        <div class="timeline-content">
+                            <h3 class="step-title"><span class="step-icon">🚀</span>Déployer</h3>
+                            <p class="step-description">Exécution rapide avec suivi hebdomadaire et création de contenus. Mise en place de vos campagnes et activation de tous les canaux d'acquisition.</p>
+                        </div>
+                    </article>
+
+                    <article class="timeline-item animate-on-scroll">
+                        <div class="timeline-number">04</div>
+                        <div class="timeline-connector"></div>
+                        <div class="timeline-content">
+                            <h3 class="step-title"><span class="step-icon">📊</span>Optimiser</h3>
+                            <p class="step-description">Amélioration continue basée sur la data avec A/B testing. Optimisation permanente de vos performances pour maximiser le ROI sur le long terme.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="expertise">
+            <div class="container">
+                <h2 class="section-title">Notre Expertise</h2>
+                <p class="section-subtitle">Technologies et méthodologies maîtrisées.</p>
+                
+                <div class="expertise-grid">
+                    <article class="expertise-item animate-on-scroll">
+                        <div class="expertise-icon">🤖</div>
+                        <h3>IA & Automation</h3>
+                        <p>ChatGPT, Claude, automation marketing</p>
+                    </article>
+                    
+                    <article class="expertise-item animate-on-scroll">
+                        <div class="expertise-icon">📊</div>
+                        <h3>Analytics</h3>
+                        <p>GA4, Tag Manager, attribution</p>
+                    </article>
+                    
+                    <article class="expertise-item animate-on-scroll">
+                        <div class="expertise-icon">🎨</div>
+                        <h3>Création</h3>
+                        <p>Design, vidéo, copywriting</p>
+                    </article>
+                    
+                    <article class="expertise-item animate-on-scroll">
+                        <div class="expertise-icon">⚡</div>
+                        <h3>Paid Ads</h3>
+                        <p>Google, Meta, LinkedIn, TikTok</p>
+                    </article>
+
+                    <article class="expertise-item animate-on-scroll">
+                        <div class="expertise-icon">🔧</div>
+                        <h3>MarTech</h3>
+                        <p>HubSpot, Salesforce, Zapier</p>
+                    </article>
+                    
+                    <article class="expertise-item animate-on-scroll">
+                        <div class="expertise-icon">📱</div>
+                        <h3>Growth</h3>
+                        <p>Expérimentation, scaling</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact-cta">
+            <div class="container">
+                <h2 class="animate-on-scroll">Prêt à Faire Fuser votre Marketing ?</h2>
+                <p class="animate-on-scroll">Réservez votre audit marketing gratuit de 30 minutes.</p>
+                <a href="#" class="cta-primary animate-on-scroll" onclick="openBookingModal(); return false;">Réserver mon audit gratuit</a>
+            </div>
+        </section>
+    </main>
+
+    <div id="cookieConsent" class="cookie-banner">
+        <div class="cookie-content">
+            <div class="cookie-text">
+                <h3>🍪 Gestion des cookies</h3>
+                <p>Nous utilisons des cookies pour améliorer votre expérience, analyser notre trafic et personnaliser le contenu. Vous pouvez accepter tous les cookies ou gérer vos préférences.</p>
+            </div>
+            <div class="cookie-buttons">
+                <button onclick="acceptAllCookies()" class="cookie-btn cookie-accept">Accepter tout</button>
+                <button onclick="rejectAllCookies()" class="cookie-btn cookie-reject">Refuser tout</button>
+                <button onclick="openCookieSettings()" class="cookie-btn cookie-settings">Personnaliser</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="cookieSettingsModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Gestion des cookies</h2>
+                <button class="modal-close" onclick="closeCookieSettings()">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="cookie-category">
+                    <div class="cookie-category-header">
+                        <label class="cookie-switch">
+                            <input type="checkbox" checked disabled>
+                            <span class="cookie-slider"></span>
+                        </label>
+                        <div>
+                            <h4>Cookies essentiels</h4>
+                            <p>Nécessaires au fonctionnement du site.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cookie-category">
+                    <div class="cookie-category-header">
+                        <label class="cookie-switch">
+                            <input type="checkbox" id="analyticsCookies">
+                            <span class="cookie-slider"></span>
+                        </label>
+                        <div>
+                            <h4>Cookies analytiques</h4>
+                            <p>Mesure d'audience (Google Analytics).</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cookie-category">
+                    <div class="cookie-category-header">
+                        <label class="cookie-switch">
+                            <input type="checkbox" id="marketingCookies">
+                            <span class="cookie-slider"></span>
+                        </label>
+                        <div>
+                            <h4>Cookies marketing</h4>
+                            <p>Ciblage publicitaire (Meta Pixel, Google Ads).</p>
+                        </div>
+                    </div>
+                </div>
+
+                <button onclick="saveCookiePreferences()" class="btn-submit">Enregistrer mes préférences</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Fusea</h3>
+                    <p>L'agence marketing qui fuse votre croissance.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <a href="#services">Audit & Stratégie</a>
+                    <a href="#services">Branding & Contenus</a>
+                    <a href="#services">Paid Media & CRO</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>Paris, France</p>
+                    <p>contact@fusea.fr</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Légal</h3>
+                    <a href="mentions-legales.html">Mentions légales</a>
+                    <a href="politique_confidentialite.html">Confidentialité</a>
+                    <a href="politique-cookies.html">Cookies</a>
+                    <a href="cgu.html">CGU</a>
+                    <a href="cgv.html">CGV</a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Fusea. Tous droits réservés.</p>
+                <div class="footer-legal-links">
+                    <a href="mentions-legales.html">Mentions légales</a>
+                    <span>•</span>
+                    <a href="politique_confidentialite.html">Confidentialité</a>
+                    <span>•</span>
+                    <a href="politique-cookies.html">Cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Réservez votre audit gratuit</h2>
+                <p>Remplissez le formulaire et nous vous recontacterons sous 24h</p>
+                <button class="modal-close" onclick="closeBookingModal()">×</button>
+            </div>
+            <div class="modal-body">
+                <form id="bookingForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="nom">Nom complet *</label>
+                            <input type="text" id="nom" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="telephone">Téléphone *</label>
+                            <input type="tel" id="telephone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="entreprise">Entreprise *</label>
+                            <input type="text" id="entreprise" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Parlez-nous de votre projet</label>
+                        <textarea id="message" rows="4" placeholder="Décrivez vos objectifs..."></textarea>
+                    </div>
+
+                    <div class="rgpd-consent">
+                        <input type="checkbox" id="rgpdConsent" required>
+                        <label for="rgpdConsent">J'accepte la <a href="politique_confidentialite.html" target="_blank">politique de confidentialité</a> *</label>
+                    </div>
+
+                    <button type="submit" class="btn-submit">Réserver mon audit gratuit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <button id="chatFab" class="chat-fab">💬</button>
+
+    <div id="chatbotWidget" class="modal chatbot">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="chat-header-info">
+                    <h2>Assistant Fusea</h2>
+                    <div class="chat-status">
+                        <span class="status-dot"></span>
+                        <span>En ligne</span>
+                    </div>
+                </div>
+                <button class="modal-close" onclick="closeChatbot()">×</button>
+            </div>
+            <div class="modal-body chat-body">
+                <div id="chatMessages" class="chat-messages"></div>
+                <form id="chatForm" class="chat-form">
+                    <input type="text" id="chatInput" placeholder="Votre message..." required>
+                    <button type="submit" class="chat-send">➤</button>
+                </form>
+                <p class="chat-hint"><a href="politique_confidentialite.html" target="_blank">Confidentialité</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function checkCookieConsent() {
+            const consent = localStorage.getItem('cookieConsent');
+            if (!consent) {
+                setTimeout(() => document.getElementById('cookieConsent').classList.add('show'), 1000);
+            }
+        }
+
+        function acceptAllCookies() {
+            localStorage.setItem('cookieConsent', JSON.stringify({essential:true,analytics:true,marketing:true}));
+            document.getElementById('cookieConsent').classList.remove('show');
+        }
+
+        function rejectAllCookies() {
+            localStorage.setItem('cookieConsent', JSON.stringify({essential:true,analytics:false,marketing:false}));
+            document.getElementById('cookieConsent').classList.remove('show');
+        }
+
+        function openCookieSettings() {
+            document.getElementById('cookieConsent').classList.remove('show');
+            document.getElementById('cookieSettingsModal').classList.add('active');
+        }
+
+        function closeCookieSettings() {
+            document.getElementById('cookieSettingsModal').classList.remove('active');
+        }
+
+        function saveCookiePreferences() {
+            const consent = {
+                essential: true,
+                analytics: document.getElementById('analyticsCookies').checked,
+                marketing: document.getElementById('marketingCookies').checked
+            };
+            localStorage.setItem('cookieConsent', JSON.stringify(consent));
+            closeCookieSettings();
+            alert('Préférences enregistrées');
+        }
+
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.animate-on-scroll');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) entry.target.classList.add('animated');
+                });
+            }, {threshold: 0.1});
+            elements.forEach(el => observer.observe(el));
+        }
+
+        function openBookingModal() {
+            document.getElementById('bookingModal').classList.add('active');
+        }
+
+        function closeBookingModal() {
+            document.getElementById('bookingModal').classList.remove('active');
+        }
+
+        document.getElementById('bookingModal').addEventListener('click', function(e) {
+            if (e.target === this) closeBookingModal();
+        });
+
+        document.getElementById('bookingForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            if (!document.getElementById('rgpdConsent').checked) {
+                alert('Veuillez accepter la politique de confidentialité pour continuer.');
+                return;
+            }
+            
+            // Validation stricte de l'email
+            const email = document.getElementById('email').value;
+            const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            if (!emailRegex.test(email)) {
+                alert('⚠️ Veuillez entrer une adresse email valide (ex: nom@exemple.com)');
+                document.getElementById('email').focus();
+                return;
+            }
+            
+            // Validation stricte du téléphone (format français ou international)
+            const telephone = document.getElementById('telephone').value;
+            const phoneRegex = /^(?:(?:\+|00)(?:[1-9]\d{0,2}))?[\s.-]?(?:\(0?\d{1,3}\))?[\s.-]?\d{1,4}[\s.-]?\d{1,4}[\s.-]?\d{1,4}[\s.-]?\d{1,4}$/;
+            const cleanPhone = telephone.replace(/\s/g, '');
+            if (cleanPhone.length < 10 || !phoneRegex.test(telephone)) {
+                alert('⚠️ Veuillez entrer un numéro de téléphone valide (minimum 10 chiffres)');
+                document.getElementById('telephone').focus();
+                return;
+            }
+            
+            // Validation du nom (minimum 2 caractères)
+            const nom = document.getElementById('nom').value.trim();
+            if (nom.length < 2) {
+                alert('⚠️ Veuillez entrer un nom complet valide');
+                document.getElementById('nom').focus();
+                return;
+            }
+            
+            // Validation de l'entreprise (minimum 2 caractères)
+            const entreprise = document.getElementById('entreprise').value.trim();
+            if (entreprise.length < 2) {
+                alert('⚠️ Veuillez entrer le nom de votre entreprise');
+                document.getElementById('entreprise').focus();
+                return;
+            }
+            
+            const submitBtn = this.querySelector('.btn-submit');
+            const originalText = submitBtn.textContent;
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Envoi en cours...';
+            
+            const formData = {
+                nom: nom,
+                email: email,
+                telephone: telephone,
+                entreprise: entreprise,
+                message: document.getElementById('message').value,
+                timestamp: new Date().toISOString()
+            };
+            
+            try {
+                const response = await fetch('https://script.google.com/macros/s/AKfycbwkT20HFc-Zk1xItuIxv7YNiG6SZjc1zRUH0v9Hw3569lAhKoVKDus_NbCnx81jXGo/exec', {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData)
+                });
+                
+                alert('✅ Merci ! Votre demande a été enregistrée. Nous vous recontacterons sous 24h.');
+                closeBookingModal();
+                this.reset();
+                
+            } catch (error) {
+                console.error('Erreur lors de l\'envoi:', error);
+                alert('❌ Une erreur est survenue. Veuillez réessayer ou nous contacter directement à contact@fusea.fr');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalText;
+            }
+        });
+
+        const chatFab = document.getElementById('chatFab');
+        const chatbotWidget = document.getElementById('chatbotWidget');
+        const chatForm = document.getElementById('chatForm');
+        const chatInput = document.getElementById('chatInput');
+        const chatMessages = document.getElementById('chatMessages');
+
+        function openChatbot() {
+            chatbotWidget.classList.add('active');
+            chatInput.focus();
+            
+            if (!sessionStorage.getItem('chat_greeted')) {
+                showIntroMessage();
+                setTimeout(() => {
+                    appendBot("Bonjour ! 👋 Je suis l'assistant virtuel de Fusea.\n\nComment puis-je vous aider aujourd'hui ?");
+                    setTimeout(() => showQuickReplies(), 500);
+                }, 1000);
+                sessionStorage.setItem('chat_greeted', '1');
+            }
+        }
+
+        function showIntroMessage() {
+            const intro = document.createElement('div');
+            intro.className = 'chat-intro-message';
+            intro.innerHTML = `
+                <h3>💬 Bienvenue sur le chat Fusea</h3>
+                <p>Je peux vous aider avec :</p>
+                <ul>
+                    <li>Informations sur nos services</li>
+                    <li>Tarifs et devis personnalisés</li>
+                    <li>Délais de réalisation</li>
+                    <li>Réservation d'audit gratuit</li>
+                </ul>
+            `;
+            chatMessages.appendChild(intro);
+        }
+
+        function closeChatbot() {
+            chatbotWidget.classList.remove('active');
+        }
+
+        chatFab.addEventListener('click', openChatbot);
+        chatbotWidget.addEventListener('click', (e) => {
+            if (e.target.id === 'chatbotWidget') closeChatbot();
+        });
+
+        function getCurrentTime() {
+            const now = new Date();
+            return now.getHours().toString().padStart(2, '0') + ':' + now.getMinutes().toString().padStart(2, '0');
+        }
+
+        function appendUser(text) {
+            removeQuickReplies();
+            const div = document.createElement('div');
+            div.className = 'chat-message user';
+            div.innerHTML = `
+                <div>
+                    <div class="chat-bubble">${escapeHtml(text)}</div>
+                    <div class="chat-timestamp">${getCurrentTime()}</div>
+                </div>
+            `;
+            chatMessages.appendChild(div);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function appendBot(text, showTime = true) {
+            removeTypingIndicator();
+            const div = document.createElement('div');
+            div.className = 'chat-message bot';
+            const timeHtml = showTime ? `<div class="chat-timestamp">${getCurrentTime()}</div>` : '';
+            div.innerHTML = `
+                <div class="avatar">F</div>
+                <div>
+                    <div class="chat-bubble">${text}</div>
+                    ${timeHtml}
+                </div>
+            `;
+            chatMessages.appendChild(div);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function showTypingIndicator() {
+            removeTypingIndicator();
+            const div = document.createElement('div');
+            div.className = 'chat-message bot';
+            div.id = 'typingIndicator';
+            div.innerHTML = `
+                <div class="avatar">F</div>
+                <div class="typing-indicator">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            `;
+            chatMessages.appendChild(div);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function removeTypingIndicator() {
+            const indicator = document.getElementById('typingIndicator');
+            if (indicator) indicator.remove();
+        }
+
+        function showQuickReplies() {
+            removeQuickReplies();
+            const container = document.createElement('div');
+            container.className = 'chat-quick-replies';
+            container.id = 'quickReplies';
+            container.innerHTML = `
+                <button class="quick-reply-btn" onclick="handleQuickReply('Quels sont vos tarifs ?')">💰 Tarifs</button>
+                <button class="quick-reply-btn" onclick="handleQuickReply('Vos services ?')">🎯 Services</button>
+                <button class="quick-reply-btn" onclick="handleQuickReply('Délais de livraison ?')">⏱️ Délais</button>
+                <button class="quick-reply-btn" onclick="handleQuickReply('Réserver un audit')">📅 Audit gratuit</button>
+            `;
+            chatMessages.parentElement.insertBefore(container, chatMessages.nextSibling);
+        }
+
+        function removeQuickReplies() {
+            const replies = document.getElementById('quickReplies');
+            if (replies) replies.remove();
+        }
+
+        window.handleQuickReply = function(text) {
+            chatInput.value = text;
+            chatForm.dispatchEvent(new Event('submit'));
+        }
+
+        function escapeHtml(s) {
+            return s.replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+        }
+
+        function generateBotReply(msg) {
+            const lower = msg.toLowerCase();
+            
+            // Intent: Audit gratuit
+            if (lower.includes('audit') || lower.includes('gratuit') || lower.includes('rendez-vous') || lower.includes('appel') || lower.includes('diagnostic')) {
+                return `📅 <strong>Audit Marketing Gratuit (30 min)</strong>\n\n✅ Totalement gratuit, toujours\n⏱️ Réponse sous 24h\n📊 Diagnostic express + plan d'action 7-14 jours\n\n👉 Cliquez sur "Réserver audit gratuit" en haut de la page ou remplissez le formulaire pour être recontacté !`;
+            }
+            
+            // Intent: Prix / Tarifs / Devis
+            if (lower.includes('tarif') || lower.includes('prix') || lower.includes('coût') || lower.includes('budget') || lower.includes('devis')) {
+                return `💰 <strong>Nos tarifs</strong>\n\n📌 Nos prestations commencent à partir de <strong>400€</strong>\n📋 Chaque client reçoit un devis personnalisé selon ses besoins\n\n<strong>Exemples indicatifs :</strong>\n• Stratégie Marketing : 800-1500€\n• Setup campagne Ads : 600€ + 15% budget mensuel\n• Article SEO : 150-300€/article\n• Social Media : 500€/mois\n\n💡 Tu préfères me donner 2-3 infos ici ou passer par l'audit gratuit pour cadrer précisément ?`;
+            }
+            
+            // Services généraux
+            if (lower.includes('service') || lower.includes('proposez') || lower.includes('faites') || lower.includes('offre')) {
+                return `🎯 <strong>Nos services</strong>\n\n🔍 <strong>Stratégie Marketing</strong>\nAudit complet, personas, plan 90 jours, KPIs (2-3 semaines)\n\n📢 <strong>Acquisition Payante</strong>\nGoogle/Meta Ads, setup + optimisation + reporting (mise en route 1 semaine)\n\n📈 <strong>SEO</strong>\nTechnique + contenu + maillage (mensuel ou one-shot)\n\n✍️ <strong>Création de Contenu</strong>\nPosts, vidéos UGC, copywriting (packages ou à la carte)\n\n📱 <strong>Social Media Management</strong>\nStratégie, calendrier, community management (mensuel)\n\n❓ Sur quel service veux-tu plus d'infos ?`;
+            }
+            
+            // Google Ads / Meta Ads / Publicité
+            if (lower.includes('pub') || lower.includes('ads') || lower.includes('google ads') || lower.includes('meta') || lower.includes('facebook') || lower.includes('instagram') || lower.includes('campagne')) {
+                return `🎯 <strong>Acquisition Payante (Google/Meta Ads)</strong>\n\nCe qu'on fait :\n• Setup complet des campagnes\n• Optimisation continue\n• Reporting hebdomadaire transparent\n• Suivi des KPIs (ROAS, CAC, conversions)\n\n⏱️ <strong>Délai :</strong> Mise en route en 1 semaine\n💰 <strong>Tarif indicatif :</strong> Setup 600€ + 15% du budget mensuel\n\n⚠️ On ne garantit pas de ROAS/CAC spécifique, mais on s'engage sur la transparence et l'optimisation continue.\n\nTu veux qu'on cadre ça via un audit gratuit ?`;
+            }
+            
+            // SEO / Référencement
+            if (lower.includes('seo') || lower.includes('référencement') || lower.includes('google') || lower.includes('organic')) {
+                return `📈 <strong>SEO (Référencement naturel)</strong>\n\nNotre approche :\n• SEO technique (vitesse, structure)\n• Stratégie de contenu optimisé\n• Maillage interne/externe\n• Recherche de mots-clés\n\n📅 <strong>Formules :</strong>\n• One-shot : audit + corrections\n• Mensuel : suivi continu + création contenu\n\n💰 <strong>Articles SEO :</strong> 150-300€/article\n💰 <strong>Forfait mensuel :</strong> sur devis selon volume\n\n📊 KPIs suivis : trafic organique, positions, conversions\n\nBesoin d'un audit SEO gratuit pour voir tes opportunités ?`;
+            }
+            
+            // Contenu / Social Media / Community Management
+            if (lower.includes('contenu') || lower.includes('social') || lower.includes('community') || lower.includes('posts') || lower.includes('vidéo') || lower.includes('ugc')) {
+                return `📱 <strong>Création de Contenu & Social Media</strong>\n\n<strong>Création de Contenu :</strong>\n• Posts pour réseaux sociaux\n• Vidéos UGC authentiques\n• Copywriting persuasif\n• Packages ou à la carte\n\n<strong>Social Media Management complet :</strong>\n• Stratégie éditoriale\n• Calendrier de publication\n• Community management\n• Animation & engagement\n\n💰 <strong>Tarif indicatif :</strong> 500€/mois (à confirmer par devis)\n\nOn en discute via un audit gratuit ?`;
+            }
+            
+            // Paiement
+            if (lower.includes('paiement') || lower.includes('payer') || lower.includes('échelon') || lower.includes('plusieurs fois')) {
+                return `💳 <strong>Nos modalités de paiement</strong>\n\n<strong>Option 1 : Paiement direct</strong>\n• Prix du devis en une fois\n• ✅ Aucun engagement\n\n<strong>Option 2 : Paiements échelonnés</strong>\n• Plusieurs mensualités\n• ⚠️ Avec engagement\n\nOn indique la modalité dans la proposition détaillée après l'audit.\n\n📋 Acompte standard : 30% à la signature`;
+            }
+            
+            // Engagement / Durée
+            if (lower.includes('engagement') || lower.includes('durée') || lower.includes('contrat') || lower.includes('annuler')) {
+                return `📝 <strong>Engagement & Annulation</strong>\n\n✅ <strong>Paiement direct :</strong> Aucun engagement\n⚠️ <strong>Paiement échelonné :</strong> Engagement selon la durée choisie\n\n<strong>Annulation :</strong>\n• Prestations livrées : non remboursables\n• Abonnements mensuels : résiliables à la prochaine échéance\n\n🔒 <strong>Propriété :</strong> Les créations sont à toi dès paiement complet`;
+            }
+            
+            // Délais
+            if (lower.includes('délai') || lower.includes('combien de temps') || lower.includes('durée') || lower.includes('rapidité') || lower.includes('quand')) {
+                return `⏱️ <strong>Nos délais de réalisation</strong>\n\n📅 <strong>Process général :</strong>\n1. Audit gratuit (30 min)\n2. Proposition détaillée sous 48h\n3. Signature + acompte 30%\n4. Kick-off et brief\n5. Livraison + reporting régulier\n\n<strong>Délais par service :</strong>\n• Stratégie Marketing : 2-3 semaines\n• Setup campagne Ads : 1 semaine\n• SEO : ongoing ou one-shot selon besoin\n• Contenu : selon volume (packages mensuels)\n\n⚡ SLA : Réponse sous 24h à toute demande`;
+            }
+            
+            // Contact / Équipe / Fondateurs
+            if (lower.includes('contact') || lower.includes('email') || lower.includes('téléphone') || lower.includes('joindre') || lower.includes('équipe') || lower.includes('fondateur')) {
+                return `👥 <strong>L'équipe Fusea</strong>\n\n<strong>Fondateurs :</strong>\n• Julien Moens (HEC Liège)\n• Martin Gomez (IA HELMo)\n\n✨ Les fondateurs restent accessibles directement (pas d'intermédiaires commerciaux)\n\n📧 <strong>Email :</strong> hello@fusea.agency\n⏰ <strong>Horaires :</strong> Lundi-Vendredi, 9h-18h\n⚡ <strong>Délai de réponse :</strong> Sous 24h\n\nTu peux aussi remplir le formulaire d'audit gratuit pour être recontacté !`;
+            }
+            
+            // PME / Petites entreprises / Local
+            if (lower.includes('pme') || lower.includes('petit') || lower.includes('local') || lower.includes('restaurant') || lower.includes('commerce')) {
+                return `🏪 <strong>Fusea pour les PME locales</strong>\n\n✅ Oui, on travaille avec des petites entreprises locales !\n\n<strong>Notre expertise :</strong>\n• Restaurants & cafés → visibilité locale\n• Commerces de proximité → acquisition clients\n• PME B2B → génération de leads qualifiés\n• Startups → lancement produit\n\n💡 <strong>Notre mission :</strong> Rendre accessible le marketing de 2026 aux PME, en combinant proximité, écoute et performance mesurable.\n\nLes géants ont des moyens illimités, mais vous méritez aussi un marketing de pointe !\n\n📅 On en parle lors d'un audit gratuit ?`;
+            }
+            
+            // ROAS / Garantie / Résultats
+            if (lower.includes('roas') || lower.includes('garantie') || lower.includes('garantir') || lower.includes('résultat') || lower.includes('promesse')) {
+                return `📊 <strong>Résultats & Garanties</strong>\n\n⚠️ <strong>Important :</strong> On ne garantit pas de ROAS ou CAC spécifique.\n\nPourquoi ? Le marketing dépend de nombreux facteurs (marché, produit, concurrence, budget...).\n\n<strong>Ce qu'on garantit :</strong>\n✅ Transparence totale (reporting en temps réel)\n✅ Optimisation continue basée sur la data\n✅ Suivi des KPIs : leads/mois, CAC, ROAS, trafic, conversions\n✅ Réponse sous 24h à tes questions\n✅ Approche data-driven et itérative\n\nOn s'engage sur le process et la transparence, pas sur un chiffre magique !\n\nTu veux voir comment on travaille ? Réserve un audit gratuit.`;
+            }
+            
+            // Outils utilisés
+            if (lower.includes('outil') || lower.includes('logiciel') || lower.includes('plateforme')) {
+                return `🔧 <strong>Nos outils</strong>\n\n• Google Ads & Google Analytics 4\n• Meta Business Suite (Facebook/Instagram)\n• LinkedIn Ads\n• SEO : SEMrush, Ahrefs, Search Console\n• IA : ChatGPT, Claude, outils automation\n• Reporting : Looker Studio, dashboards personnalisés\n\n✨ L'IA est intégrée dans nos process pour plus d'efficacité.\n\n📊 Tu auras accès à tous les dashboards en temps réel pour suivre tes KPIs.`;
+            }
+            
+            // Différenciation / Pourquoi Fusea
+            if (lower.includes('pourquoi') || lower.includes('différence') || lower.includes('unique') || lower.includes('choisir')) {
+                return `✨ <strong>Pourquoi choisir Fusea ?</strong>\n\n🎯 <strong>Fondateurs accessibles directement</strong>\nPas de commerciaux, tu parles aux experts\n\n🤖 <strong>IA intégrée dans les process</strong>\nPlus d'efficacité, meilleure performance\n\n📊 <strong>Reporting transparent en temps réel</strong>\nTu vois exactement où va chaque euro\n\n🎓 <strong>Expertise reconnue</strong>\nJulien (HEC Liège) + Martin (IA HELMo)\n\n💡 <strong>Notre mission :</strong>\nRendre accessible le marketing de 2026 aux PME\n\n🤝 <strong>Nos valeurs :</strong>\nProximité, écoute, résultats mesurables\n\nOn en discute lors d'un audit gratuit ?`;
+            }
+            
+            // Objections : "trop cher"
+            if (lower.includes('cher') || lower.includes('coûte') || lower.includes('budget serré')) {
+                return `💰 <strong>"C'est trop cher pour moi"</strong>\n\nJe comprends ! Voici nos solutions :\n\n✅ <strong>Paiements échelonnés disponibles</strong>\nPlusieurs mensualités pour lisser l'investissement\n\n✅ <strong>Prestations à partir de 400€</strong>\nOn peut commencer petit et scaler progressivement\n\n✅ <strong>Audit gratuit pour optimiser ton budget</strong>\nOn identifie les actions les plus rentables pour toi\n\n💡 Le marketing est un investissement, pas une dépense. On se concentre sur le ROI, pas juste les dépenses.\n\nTu veux qu'on évalue ensemble les actions prioritaires pour ton budget ?`;
+            }
+            
+            // Objections : "j'ai déjà essayé"
+            if (lower.includes('déjà essayé') || lower.includes('pas marché') || lower.includes('déçu') || lower.includes('échec')) {
+                return `😔 <strong>"J'ai déjà essayé, ça n'a pas marché"</strong>\n\nJe comprends ta déception. Beaucoup d'entreprises ont vécu ça.\n\n<strong>Ce qu'on fait différemment :</strong>\n\n📊 <strong>Approche 100% data-driven</strong>\nOn teste, on mesure, on optimise en continu\n\n🔍 <strong>Transparence totale</strong>\nTu vois tous les chiffres en temps réel\n\n🎯 <strong>Pas de promesses en l'air</strong>\nOn s'engage sur le process, pas sur des résultats magiques\n\n⚡ <strong>Itérations rapides</strong>\nOn ajuste chaque semaine selon la performance\n\nL'audit gratuit nous permettra de voir pourquoi ça n'a pas marché avant et comment corriger le tir.\n\nTu veux qu'on analyse ta situation ?`;
+            }
+            
+            // Objections : "pas le temps"
+            if (lower.includes('pas le temps') || lower.includes('occupé') || lower.includes('débordé')) {
+                return `⏰ <strong>"Je n'ai pas le temps"</strong>\n\nC'est justement pour ça qu'on existe !\n\n✅ <strong>Gestion 100% clé en main</strong>\nOn s'occupe de tout de A à Z\n\n✅ <strong>Tu valides, on exécute</strong>\nTu gardes le contrôle sans perdre de temps\n\n✅ <strong>Reporting automatique</strong>\nTu reçois les KPIs sans avoir à les chercher\n\n✅ <strong>Points réguliers courts</strong>\n15-30 min max pour faire le point\n\nTon job : développer ton business.\nNotre job : faire tourner ton marketing.\n\nOn en parle lors d'un audit rapide de 30 min ?`;
+            }
+            
+            // Remerciements
+            if (lower.includes('merci') || lower.includes('ok') || lower.includes('d\'accord') || lower.includes('super') || lower.includes('parfait')) {
+                return `😊 Avec plaisir ! Je reste à ta disposition si tu as d'autres questions.\n\n💡 N'hésite pas à réserver un audit gratuit pour qu'on puisse vraiment cadrer ton projet ensemble !\n\n🚀 À très vite !`;
+            }
+            
+            // Salutations
+            if (lower.includes('bonjour') || lower.includes('salut') || lower.includes('hello') || lower.includes('hey') || lower.includes('coucou')) {
+                return `👋 Salut ! Ravi d'échanger avec toi.\n\nJe suis l'assistant Fusea et je peux t'aider à :\n• Comprendre nos services\n• Avoir une idée des tarifs\n• Réserver un audit gratuit\n• Répondre à tes questions\n\nComment puis-je t'aider aujourd'hui ?`;
+            }
+            
+            // Réponse par défaut (info manquante)
+            return `🤔 Je préfère vérifier pour être sûr de ne pas te dire de bêtises.\n\nTu veux que je t'oriente vers :\n• 📅 L'audit gratuit (30 min) ?\n• 📧 L'équipe à hello@fusea.agency ?\n\n💡 Ou reformule ta question, je pourrai peut-être mieux t'aider !`;
+        }
+
+        chatForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const text = chatInput.value.trim();
+            if (!text) return;
+            
+            appendUser(text);
+            chatInput.value = '';
+            
+            showTypingIndicator();
+            
+            setTimeout(() => {
+                const reply = generateBotReply(text);
+                appendBot(reply);
+                
+                if (!text.toLowerCase().includes('merci')) {
+                    setTimeout(() => showQuickReplies(), 300);
+                }
+            }, Math.random() * 1000 + 800);
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            animateOnScroll();
+            checkCookieConsent();
+        });
+    </script>
+</body>
+</html>

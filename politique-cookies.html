@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Politique de cookies - Fusea</title>
+
+    <meta name="description" content="Politique de cookies de Fusea : types de cookies utilisés, gestion des préférences, durée de conservation et informations sur les cookies tiers.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --primary-color: #6C63FF;
+            --secondary-color: #00C9A7;
+            --background-color: #FAFBFC;
+            --surface-color: #FFFFFF;
+            --text-color: #1E1E2F;
+            --text-light: #6B7280;
+            --border-color: #E5E7EB;
+            --gradient-primary: linear-gradient(135deg, #6C63FF 0%, #00C9A7 100%);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.8;
+            color: var(--text-color);
+            background: var(--background-color);
+        }
+
+        header {
+            background: var(--surface-color);
+            padding: 1.5rem 0;
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .logo {
+            font-size: 1.75rem;
+            font-weight: 800;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            background-clip: text;              /* fallback standard */
+            -webkit-text-fill-color: transparent;
+            color: transparent;                 /* fallback standard */
+            text-decoration: none;
+        }
+
+        .content { padding: 4rem 0; }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            background-clip: text;              /* fallback standard */
+            -webkit-text-fill-color: transparent;
+            color: transparent;                 /* fallback standard */
+            margin-bottom: 1rem;
+        }
+
+        .last-updated {
+            color: var(--text-light);
+            margin-bottom: 3rem;
+            font-size: 0.95rem;
+        }
+
+        h2 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-top: 3rem;
+            margin-bottom: 1rem;
+            color: var(--text-color);
+        }
+
+        h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-color);
+        }
+
+        p { margin-bottom: 1.25rem; color: var(--text-light); }
+
+        ul, ol {
+            margin-bottom: 1.25rem;
+            padding-left: 2rem;
+            color: var(--text-light);
+        }
+
+        li { margin-bottom: 0.5rem; }
+
+        strong { color: var(--text-color); font-weight: 600; }
+
+        a { color: var(--primary-color); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: var(--text-light);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        .back-link:hover { color: var(--primary-color); transform: translateX(-5px); }
+
+        /* Tables */
+        .table-wrapper {
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            margin: 2rem 0;
+            border-radius: 8px;
+            background: var(--surface-color);
+            box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 600px; /* aide à éviter les casses sur mobile */
+        }
+
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            background: var(--gradient-primary);
+            color: white;
+            font-weight: 600;
+        }
+
+        tr:last-child td { border-bottom: none; }
+
+        footer {
+            background: var(--text-color);
+            color: white;
+            padding: 2rem 0;
+            margin-top: 4rem;
+            text-align: center;
+        }
+        footer p { color: rgba(255, 255, 255, 0.8); }
+        footer a { color: var(--secondary-color); }
+
+        /* Petit boost d’accessibilité : focus visible */
+        a:focus {
+            outline: 2px dashed var(--secondary-color);
+            outline-offset: 2px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="index.html" class="logo" aria-label="Retour à l’accueil Fusea">Fusea</a>
+        </div>
+    </header>
+
+    <main class="container content">
+        <a href="index.html" class="back-link" aria-label="Retour à l’accueil">← Retour à l'accueil</a>
+
+        <h1>Politique de cookies</h1>
+        <p class="last-updated">
+            Dernière mise à jour :
+            <time datetime="2025-10-01">1er octobre 2025</time>
+        </p>
+
+        <h2>1. Qu'est-ce qu'un cookie&nbsp;?</h2>
+        <p>
+            Un cookie est un petit fichier texte stocké sur votre ordinateur ou appareil mobile lors de 
+            la visite d'un site web. Les cookies permettent au site de mémoriser vos actions et préférences 
+            (identifiant, langue, taille de police, autres préférences d'affichage) pendant une certaine 
+            période, afin que vous n'ayez pas à les ressaisir à chaque fois que vous revenez sur le site 
+            ou naviguez d'une page à l'autre.
+        </p>
+
+        <h2>2. Comment utilisons-nous les cookies&nbsp;?</h2>
+        <p>Sur fusea.fr, nous utilisons les cookies pour :</p>
+        <ul>
+            <li>Assurer le bon fonctionnement du site (cookies essentiels)</li>
+            <li>Analyser la façon dont les visiteurs utilisent le site (cookies analytiques)</li>
+            <li>Personnaliser votre expérience et mémoriser vos préférences</li>
+            <li>Mesurer l'efficacité de nos campagnes marketing (cookies marketing)</li>
+        </ul>
+
+        <h2>3. Types de cookies utilisés</h2>
+
+        <h3>3.1. Cookies essentiels (obligatoires)</h3>
+        <p>
+            Ces cookies sont indispensables au fonctionnement du site. Ils vous permettent de naviguer 
+            sur le site et d'utiliser ses fonctionnalités essentielles. Sans ces cookies, certains services 
+            ne peuvent pas être fournis.
+        </p>
+
+        <div class="table-wrapper" role="region" aria-label="Tableau des cookies essentiels">
+            <table>
+                <thead>
+                    <tr>
+                        <th scope="col">Cookie</th>
+                        <th scope="col">Finalité</th>
+                        <th scope="col">Durée</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>cookieConsent</td>
+                        <td>Stocke vos préférences en matière de cookies</td>
+                        <td>12 mois</td>
+                    </tr>
+                    <tr>
+                        <td>session_id</td>
+                        <td>Identifie votre session de navigation</td>
+                        <td>Session</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>3.2. Cookies analytiques (avec consentement)</h3>
+        <p>
+            Ces cookies nous permettent de mesurer et d'analyser la façon dont les visiteurs utilisent 
+            notre site, afin d'en améliorer les performances et l'expérience utilisateur.
+        </p>
+
+        <div class="table-wrapper" role="region" aria-label="Tableau des cookies analytiques">
+            <table>
+                <thead>
+                    <tr>
+                        <th scope="col">Cookie</th>
+                        <th scope="col">Fournisseur</th>
+                        <th scope="col">Finalité</th>
+                        <th scope="col">Durée</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>_ga</td>
+                        <td>Google Analytics</td>
+                        <td>Analyse du trafic et du comportement des visiteurs</td>
+                        <td>2 ans</td>
+                    </tr>
+                    <tr>
+                        <td>_gid</td>
+                        <td>Google Analytics</td>
+                        <td>Distinction des visiteurs</td>
+                        <td>24 heures</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>3.3. Cookies marketing (avec consentement)</h3>
+        <p>
+            Ces cookies sont utilisés pour afficher des publicités pertinentes et mesurer l'efficacité 
+            de nos campagnes marketing.
+        </p>
+
+        <div class="table-wrapper" role="region" aria-label="Tableau des cookies marketing">
+            <table>
+                <thead>
+                    <tr>
+                        <th scope="col">Cookie</th>
+                        <th scope="col">Fournisseur</th>
+                        <th scope="col">Finalité</th>
+                        <th scope="col">Durée</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>_fbp</td>
+                        <td>Meta (Facebook)</td>
+                        <td>Tracking des conversions publicitaires</td>
+                        <td>3 mois</td>
+                    </tr>
+                    <tr>
+                        <td>_gcl_au</td>
+                        <td>Google Ads</td>
+                        <td>Mesure des conversions publicitaires</td>
+                        <td>3 mois</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2>4. Gestion des cookies</h2>
+        <p>
+            Vous pouvez gérer vos préférences en matière de cookies à tout moment en cliquant sur le 
+            lien «&nbsp;Gérer mes cookies&nbsp;» en bas de page ou via les paramètres de votre navigateur.
+        </p>
+
+        <h3>4.1. Via notre outil de gestion</h3>
+        <p>
+            Lors de votre première visite, une bannière s'affiche vous permettant d'accepter, refuser 
+            ou personnaliser vos choix. Vous pouvez modifier ces choix à tout moment.
+        </p>
+
+        <h3>4.2. Via votre navigateur</h3>
+        <p>Vous pouvez configurer votre navigateur pour refuser les cookies :</p>
+        <ul>
+            <li><strong>Chrome :</strong> Paramètres &gt; Confidentialité et sécurité &gt; Cookies</li>
+            <li><strong>Firefox :</strong> Options &gt; Vie privée et sécurité &gt; Cookies</li>
+            <li><strong>Safari :</strong> Préférences &gt; Confidentialité &gt; Cookies</li>
+            <li><strong>Edge :</strong> Paramètres &gt; Cookies et autorisations de site</li>
+        </ul>
+        <p>
+            Attention : bloquer tous les cookies peut affecter votre expérience de navigation et 
+            empêcher l'utilisation de certaines fonctionnalités du site.
+        </p>
+
+        <h2>5. Cookies tiers</h2>
+        <p>
+            Certains cookies sont déposés par des services tiers (Google Analytics, Meta Pixel, etc.). 
+            Ces entreprises peuvent collecter des informations sur votre navigation sur différents sites 
+            pour créer des profils d'intérêt. Nous n'avons aucun contrôle sur ces cookies.
+        </p>
+        <p>Pour en savoir plus et gérer ces cookies :</p>
+        <ul>
+            <li>Google Analytics :
+                <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer">
+                    https://tools.google.com/dlpage/gaoptout
+                </a>
+            </li>
+            <li>Meta :
+                <a href="https://www.facebook.com/help/568137493302217" target="_blank" rel="noopener noreferrer">
+                    https://www.facebook.com/help/568137493302217
+                </a>
+            </li>
+        </ul>
+
+        <h2>6. Durée de conservation</h2>
+        <p>
+            Les cookies sont conservés pour une durée maximale de 13 mois, conformément aux 
+            recommandations de la CNIL. Votre consentement est valable 6 mois et vous sera redemandé 
+            à l'expiration de ce délai.
+        </p>
+
+        <h2>7. Modifications</h2>
+        <p>
+            Nous nous réservons le droit de modifier cette politique de cookies à tout moment. Les 
+            modifications prennent effet dès leur publication sur cette page.
+        </p>
+
+        <h2>8. Contact</h2>
+        <p>Pour toute question sur notre utilisation des cookies :</p>
+        <ul>
+            <li>Email : <a href="mailto:contact@fusea.fr">contact@fusea.fr</a></li>
+            <li>Consultez également notre <a href="politique-confidentialite.html">Politique de confidentialité</a></li>
+        </ul>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Fusea. Tous droits réservés.</p>
+            <p>
+                <a href="mentions-legales.html">Mentions légales</a> • 
+                <a href="politique-confidentialite.html">Confidentialité</a> • 
+                <a href="politique-cookies.html" aria-current="page">Cookies</a> • 
+                <a href="cgu.html">CGU</a> • 
+                <a href="cgv.html">CGV</a>
+            </p>
+            <p>
+                <a href="#" onclick="if(window.cookieConsentManager){cookieConsentManager.open();} else { window.location.href='preferences-cookies.html'; } return false;">
+                    Gérer mes cookies
+                </a>
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
