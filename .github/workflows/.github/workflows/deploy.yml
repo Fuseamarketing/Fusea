@@ -1,0 +1,43 @@
+name: Deploy to Hostinger (static)
+
+on:
+  push:
+    branches: [ "main" ]   # Déploie à chaque push sur la branche main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # === Pas de build: ton site est en HTML/CSS/JS à la racine ===
+      # Si un jour tu ajoutes un build (Vite/React), je te donnerai la variante.
+
+      - name: Deploy via FTP/FTPS
+        uses: SamKirkland/FTP-Deploy-Action@v4
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          # ----- Protocole -----
+          # Décommente pour forcer FTPS si disponible :
+          # protocol: ftps
+          # ----- Chemins -----
+          local-dir: ./               # Envoie les fichiers à la racine du repo
+          server-dir: /public_html    # Dossier web chez Hostinger
+          # ----- Exclusions (ne pas uploader ça) -----
+          exclude: |
+            **/fusea-backend/**
+            **/node_modules/**
+            **/.git**/
+            **/.github/**
+            **/.vscode/**
+            .gitignore
+            README.md
+            package-lock.json
+            package.json
+          # ----- Miroir parfait (facultatif / avancé) -----
+          # Si tu veux que le serveur reflète EXACTEMENT le repo, décommente :
+          # dangerous-clean-slate: true
