@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Découvrez nos articles sur le marketing digital, l'automatisation IA, le LLM optimizing et nos études de cas clients. Fusea, votre agence digitale en Belgique.">
+    <meta name="keywords" content="marketing digital, automatisation IA, LLM, optimisation, études de cas, Fusea, Belgique">
+    <meta name="author" content="Fusea">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Blog & Infos - Fusea | Marketing Digital & IA">
+    <meta property="og:description" content="Actualités, conseils et études de cas en marketing digital et automatisation IA">
+    
+    <title>Blog & Actualités - Fusea | Marketing Digital & IA</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/blog.css">
+    
+    <!-- Font Awesome pour les icônes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <div class="logo">
+                    <a href="index.html">
+                        <span class="logo-text">FUSEA</span>
+                    </a>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="index.html#valeurs">Valeurs</a></li>
+                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="blog.html" class="active">Blog</a></li>
+                    <li><a href="index.html#equipe">Équipe</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+                <button class="nav-toggle" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-blog">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Blog & Actualités</h1>
+                <p class="hero-subtitle">Découvrez nos insights sur le marketing digital, l'automatisation IA et les dernières tendances</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Catégories -->
+    <section class="categories">
+        <div class="container">
+            <div class="category-filters">
+                <button class="category-btn active" data-category="all">Tous les articles</button>
+                <button class="category-btn" data-category="marketing">Marketing Digital</button>
+                <button class="category-btn" data-category="ia">Automatisation IA</button>
+                <button class="category-btn" data-category="llm">LLM Optimizing</button>
+                <button class="category-btn" data-category="case-study">Études de Cas</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Articles Grid -->
+    <section class="articles-section">
+        <div class="container">
+            <div class="articles-grid">
+                <!-- Article 1 -->
+                <article class="article-card" data-category="llm">
+                    <div class="article-image">
+                        <img src="images/blog/llm-optimizing.jpg" alt="LLM Optimizing" loading="lazy">
+                        <span class="article-tag">LLM Optimizing</span>
+                    </div>
+                    <div class="article-content">
+                        <div class="article-meta">
+                            <span class="article-date"><i class="far fa-calendar"></i> 15 Mars 2024</span>
+                            <span class="article-read-time"><i class="far fa-clock"></i> 5 min</span>
+                        </div>
+                        <h2 class="article-title">
+                            <a href="blog/llm-optimizing-guide-complet.html">Guide complet du LLM Optimizing pour votre entreprise</a>
+                        </h2>
+                        <p class="article-excerpt">
+                            Découvrez comment optimiser vos Large Language Models pour améliorer les performances de vos applications IA et réduire vos coûts opérationnels.
+                        </p>
+                        <a href="blog/llm-optimizing-guide-complet.html" class="btn-read-more">
+                            Lire l'article <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Article 2 -->
+                <article class="article-card" data-category="ia">
+                    <div class="article-image">
+                        <img src="images/blog/automatisation-ia.jpg" alt="Automatisation IA" loading="lazy">
+                        <span class="article-tag">Automatisation IA</span>
+                    </div>
+                    <div class="article-content">
+                        <div class="article-meta">
+                            <span class="article-date"><i class="far fa-calendar"></i> 8 Mars 2024</span>
+                            <span class="article-read-time"><i class="far fa-clock"></i> 7 min</span>
+                        </div>
+                        <h2 class="article-title">
+                            <a href="blog/automatisation-ia-2024.html">Les 7 processus à automatiser avec l'IA en 2024</a>
+                        </h2>
+                        <p class="article-excerpt">
+                            De la gestion client au marketing, découvrez les processus que vous pouvez automatiser dès aujourd'hui pour gagner en productivité.
+                        </p>
+                        <a href="blog/automatisation-ia-2024.html" class="btn-read-more">
+                            Lire l'article <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Article 3 -->
+                <article class="article-card" data-category="case-study">
+                    <div class="article-image">
+                        <img src="images/blog/case-study-ecommerce.jpg" alt="Étude de cas" loading="lazy">
+                        <span class="article-tag">Étude de Cas</span>
+                    </div>
+                    <div class="article-content">
+                        <div class="article-meta">
+                            <span class="article-date"><i class="far fa-calendar"></i> 1 Mars 2024</span>
+                            <span class="article-read-time"><i class="far fa-clock"></i> 10 min</span>
+                        </div>
+                        <h2 class="article-title">
+                            <a href="blog/case-study-ecommerce-ia.html">Comment nous avons augmenté les ventes de 350% avec l'IA</a>
+                        </h2>
+                        <p class="article-excerpt">
+                            Découvrez comment notre client e-commerce a triplé son chiffre d'affaires grâce à une stratégie d'automatisation marketing basée sur l'IA.
+                        </p>
+                        <a href="blog/case-study-ecommerce-ia.html" class="btn-read-more">
+                            Lire l'article <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Article 4 -->
+                <article class="article-card" data-category="marketing">
+                    <div class="article-image">
+                        <img src="images/blog/seo-2024.jpg" alt="SEO 2024" loading="lazy">
+                        <span class="article-tag">Marketing Digital</span>
+                    </div>
+                    <div class="article-content">
+                        <div class="article-meta">
+                            <span class="article-date"><i class="far fa-calendar"></i> 22 Février 2024</span>
+                            <span class="article-read-time"><i class="far fa-clock"></i> 6 min</span>
+                        </div>
+                        <h2 class="article-title">
+                            <a href="blog/tendances-seo-2024.html">Les nouvelles tendances SEO à adopter en 2024</a>
+                        </h2>
+                        <p class="article-excerpt">
+                            Google évolue, votre stratégie SEO aussi. Découvrez les tactiques incontournables pour améliorer votre visibilité organique cette année.
+                        </p>
+                        <a href="blog/tendances-seo-2024.html" class="btn-read-more">
+                            Lire l'article <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Article 5 -->
+                <article class="article-card" data-category="marketing">
+                    <div class="article-image">
+                        <img src="images/blog/social-media.jpg" alt="Social Media" loading="lazy">
+                        <span class="article-tag">Marketing Digital</span>
+                    </div>
+                    <div class="article-content">
+                        <div class="article-meta">
+                            <span class="article-date"><i class="far fa-calendar"></i> 15 Février 2024</span>
+                            <span class="article-read-time"><i class="far fa-clock"></i> 5 min</span>
+                        </div>
+                        <h2 class="article-title">
+                            <a href="blog/strategie-social-media.html">Créer une stratégie social media qui convertit</a>
+                        </h2>
+                        <p class="article-excerpt">
+                            Au-delà des likes et des partages, découvrez comment transformer votre présence sur les réseaux sociaux en machine à générer des leads.
+                        </p>
+                        <a href="blog/strategie-social-media.html" class="btn-read-more">
+                            Lire l'article <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Article 6 -->
+                <article class="article-card" data-category="ia">
+                    <div class="article-image">
+                        <img src="images/blog/chatbot-ia.jpg" alt="Chatbot IA" loading="lazy">
+                        <span class="article-tag">Automatisation IA</span>
+                    </div>
+                    <div class="article-content">
+                        <div class="article-meta">
+                            <span class="article-date"><i class="far fa-calendar"></i> 8 Février 2024</span>
+                            <span class="article-read-time"><i class="far fa-clock"></i> 8 min</span>
+                        </div>
+                        <h2 class="article-title">
+                            <a href="blog/chatbot-ia-service-client.html">Chatbot IA : Révolutionnez votre service client</a>
+                        </h2>
+                        <p class="article-excerpt">
+                            Les chatbots IA nouvelle génération peuvent gérer 80% des demandes clients. Voici comment les implémenter efficacement.
+                        </p>
+                        <a href="blog/chatbot-ia-service-client.html" class="btn-read-more">
+                            Lire l'article <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination">
+                <button class="pagination-btn" disabled><i class="fas fa-chevron-left"></i> Précédent</button>
+                <div class="pagination-numbers">
+                    <button class="pagination-number active">1</button>
+                    <button class="pagination-number">2</button>
+                    <button class="pagination-number">3</button>
+                </div>
+                <button class="pagination-btn">Suivant <i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter CTA -->
+    <section class="newsletter-section">
+        <div class="container">
+            <div class="newsletter-content">
+                <div class="newsletter-text">
+                    <h2>Restez informé des dernières tendances</h2>
+                    <p>Recevez nos meilleurs articles et insights directement dans votre boîte mail. Un email par mois, pas de spam.</p>
+                </div>
+                <form class="newsletter-form" id="newsletterForm">
+                    <div class="form-group">
+                        <input type="email" placeholder="Votre adresse email" required>
+                        <button type="submit" class="btn-submit">
+                            S'abonner <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                    <p class="form-note">
+                        <i class="fas fa-lock"></i> Vos données sont sécurisées et ne seront jamais partagées
+                    </p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Contact -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Prêt à transformer votre marketing digital ?</h2>
+                <p>Discutons de votre projet et découvrez comment l'IA peut booster votre croissance</p>
+                <div class="cta-buttons">
+                    <a href="index.html#contact" class="btn-primary">
+                        <i class="fas fa-envelope"></i> Nous contacter
+                    </a>
+                    <a href="mailto:contact@fusea.be" class="btn-secondary">
+                        <i class="fas fa-envelope"></i> contact@fusea.be
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3 class="footer-logo">FUSEA</h3>
+                    <p>L'agence marketing qui fuse votre croissance.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="index.html#services">Audit & Stratégie</a></li>
+                        <li><a href="index.html#services">Branding & Contenus</a></li>
+                        <li><a href="index.html#services">Paid Media & CRO</a></li>
+                        <li><a href="index.html#services">SEO & Automation</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Ressources</h4>
+                    <ul>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="index.html#equipe">Équipe</a></li>
+                        <li><a href="index.html#methode">Notre méthode</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Contact</h4>
+                    <ul class="footer-contact">
+                        <li><i class="fas fa-map-marker-alt"></i> Welkenraedt, Belgique</li>
+                        <li><i class="fas fa-envelope"></i> contact@fusea.be</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Fusea. Tous droits réservés.</p>
+                <div class="footer-links">
+                    <a href="mentions-legales.html">Mentions légales</a>
+                    <a href="politique_confidentialite.html">Politique de confidentialité</a>
+                    <a href="politique-cookies.html">Cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/blog.js"></script>
+</body>
+</html>
